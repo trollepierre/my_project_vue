@@ -50,4 +50,8 @@ describe('Hello.vue', () => {
     expect(vm.$el.querySelector('.hello div.counter').textContent)
       .to.equal('48')
   })
+
+  it('should check the name of my vue', () => {
+    expect(vm.$options.name).to.equal('hello')
+  })
 })
