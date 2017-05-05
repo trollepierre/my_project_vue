@@ -2,10 +2,31 @@ import Vue from 'vue'
 import Hello from '@/components/Hello'
 
 describe('Hello.vue', () => {
-  it('should render correct contents', () => {
+  let vm
+
+  beforeEach(function () {
     const Constructor = Vue.extend(Hello)
-    const vm = new Constructor().$mount()
+    vm = new Constructor().$mount()
+  })
+
+  it('should check that msg is Welcome to Your Vue.js App', () => {
+    expect(vm.$data.msg).to.equal('Welcome to Your Vue.js App')
+  })
+
+  it('should render correct contents', () => {
+    // Given
+    const data = {
+      data: {
+        msg: 'plop'
+      }
+    }
+    const Constructor = Vue.extend(Hello)
+
+    // When
+    vm = new Constructor(data).$mount()
+
+    // Then
     expect(vm.$el.querySelector('.hello h1').textContent)
-      .to.equal('Welcome to Your Vue.js App')
+      .to.equal('plop')
   })
 })
