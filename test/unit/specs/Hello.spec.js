@@ -29,4 +29,8 @@ describe('Hello.vue', () => {
     expect(vm.$el.querySelector('.hello h1').textContent)
       .to.equal('plop')
   })
+
+  it('should create a counter with zero value', () => {
+    expect(vm.$data.counter).to.equal(0)
+  })
 })
