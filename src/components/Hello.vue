@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <click-me-button message="Increment counter"></click-me-button>
+    <click-me-button message="Increment counter" v-on:buttonHasBeenClicked="incrementCounter"></click-me-button>
     <div class="counter">{{ counter }}</div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>

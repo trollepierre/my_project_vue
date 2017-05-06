@@ -58,5 +58,16 @@ describe('Hello.vue', () => {
       vm.incrementCounter()
       expect(vm.$data.counter).to.equal(1)
     })
+
+    it('should increment counter when button from ClickMeButton is clicked', () => {
+      // given
+      let button = vm.$el.querySelector('.clickMeButton button')
+
+      // when
+      button.click()
+
+      // then
+      expect(vm.$data.counter).to.equal(1)
+    })
   })
 })
