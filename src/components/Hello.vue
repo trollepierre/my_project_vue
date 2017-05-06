@@ -34,6 +34,11 @@ export default {
         msg: 'Welcome to Your Vue.js App',
         counter: 0
       }
+    },
+    methods: {
+      incrementCounter: function () {
+        this.counter += 1
+      }
     }
 }
 </script>
