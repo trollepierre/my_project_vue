@@ -1,5 +1,7 @@
 <template>
-  <div class="clickMeButton"></div>
+  <div class="clickMeButton">
+    <button>Click Me Button</button>
+  </div>
 </template>
 
 <script>
