@@ -20,4 +20,12 @@ describe('ClickMeButton.vue', () => {
     expect(vm.$el.querySelector('.clickMeButton button').textContent)
       .to.equal('Click Me Button')
   })
+
+  describe('onButtonClick', function () {
+    it('should emit click ', () => {
+      sinon.spy(vm, '$emit')
+      vm.onButtonClick()
+      sinon.assert.calledWith(vm.$emit, 'buttonHasBeenClicked')
+    })
+  })
 })
