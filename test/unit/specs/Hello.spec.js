@@ -25,4 +25,7 @@ describe('Hello.vue', () => {
       .to.equal('plop')
   })
 
+  it('should create a counter with value is zero', () => {
+    expect(vm.$data.counter).to.equal(0)
+  })
 })
