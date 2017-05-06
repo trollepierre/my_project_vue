@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'clickMeButton',
-  props: ['message']
+  props: ['message'],
+  methods: {
+    onButtonClick: function () {
+      this.$emit('buttonHasBeenClicked')
+    }
+  }
 }
 </script>
