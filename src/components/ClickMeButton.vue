@@ -1,6 +1,6 @@
 <template>
   <div class="clickMeButton">
-    <button>{{ message }}</button>
+    <button v-on:click="onButtonClick">{{ message }}</button>
   </div>
 </template>
 
