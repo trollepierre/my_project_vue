@@ -27,5 +27,17 @@ describe('ClickMeButton.vue', () => {
       vm.onButtonClick()
       sinon.assert.calledWith(vm.$emit, 'buttonHasBeenClicked')
     })
+
+    it('should bind onButtonClick when button is clicked', () => {
+      // given
+      sinon.spy(vm, '$emit')
+      const button = vm.$el.querySelector('button')
+
+      // when
+      button.click()
+
+      // then
+      sinon.assert.calledOnce(vm.$emit)
+    })
   })
 })
