@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import ClickMeButton from '@/components/ClickMeButton'
 import Hello from '@/components/Hello'
 
 describe('Hello.vue', () => {
@@ -53,5 +54,10 @@ describe('Hello.vue', () => {
 
   it('should check the name of my vue', () => {
     expect(vm.$options.name).to.equal('hello')
+  })
+
+  it('should include a clickMeButton', () => {
+    const clickMeButton = vm.$options.components.ClickMeButton
+    expect(clickMeButton).to.contain(ClickMeButton)
   })
 })

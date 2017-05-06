@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <click-me-button></click-me-button>
     <div class="counter">{{ counter }}</div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -22,14 +23,18 @@
 </template>
 
 <script>
+  import ClickMeButton from '../components/ClickMeButton'
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-      counter: 0
+    name: 'hello',
+    components: {
+      ClickMeButton
+    },
+    data () {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+        counter: 0
+      }
     }
-  }
 }
 </script>
 
