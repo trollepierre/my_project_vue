@@ -1,11 +1,12 @@
 <template>
   <div class="clickMeButton">
-    <button>Click Me Button</button>
+    <button>{{ message }}</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'clickMeButton'
+  name: 'clickMeButton',
+  props: ['message']
 }
 </script>

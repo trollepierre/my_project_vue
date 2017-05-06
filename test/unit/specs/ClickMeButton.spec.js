@@ -5,8 +5,18 @@ describe('ClickMeButton.vue', () => {
   let vm
 
   beforeEach(function () {
+    // Given
+    const config = {
+      propsData: {
+        message: 'Click Me Button'
+      }
+    }
+
+    // When
     const Constructor = Vue.extend(ClickMeButton)
-    vm = new Constructor().$mount()
+
+    // Then
+    vm = new Constructor(config).$mount()
   })
 
   it('should check the name of my vue', () => {
