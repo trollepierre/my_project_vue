@@ -28,4 +28,9 @@ describe('Hello.vue', () => {
   it('should create a counter with value is zero', () => {
     expect(vm.$data.counter).to.equal(0)
   })
+
+  it('should render counter with zero value', () => {
+    expect(vm.$el.querySelector('.hello div.counter').textContent)
+      .to.equal('0')
+  })
 })
