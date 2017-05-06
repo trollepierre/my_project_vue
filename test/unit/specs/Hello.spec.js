@@ -1,6 +1,9 @@
 import Vue from 'vue'
+import VueResource from 'vue-resource'
 import ClickMeButton from '@/components/ClickMeButton'
 import Hello from '@/components/Hello'
+
+Vue.use(VueResource)
 
 describe('Hello.vue', () => {
   let vm
@@ -68,6 +71,27 @@ describe('Hello.vue', () => {
 
       // then
       expect(vm.$data.counter).to.equal(1)
+    })
+  })
+
+  describe('incrementFromTheDice()', () => {
+    it('call api to get the dice number to increment counter', () => {
+      const promiseCall = sinon.stub(Vue, 'http').returnsPromise()
+      promiseCall.resolves({ body: 5 })
+
+      const Constructor = Vue.extend(Hello)
+      const vm = new Constructor().$mount()
+
+      vm.incrementFromTheDice()
+
+      expect(vm.$data.counter).to.equal(5)
+      expect(promiseCall).to.have.been.called
+      expect(promiseCall).to.have.been.calledWith({
+        method: 'get',
+        url: 'http://setgetgo.com/rollthedice/get.php'
+      })
+
+      Vue.http.restore()
     })
   })
 })
