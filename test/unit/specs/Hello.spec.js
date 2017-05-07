@@ -76,7 +76,7 @@ describe('Hello.vue', () => {
 
   describe('incrementFromTheDice()', () => {
     it('call api to get the dice number to increment counter', () => {
-      const promiseCall = sinon.stub(Vue, 'http').returnsPromise()
+      const promiseCall = sinon.stub(Vue.http, 'get').returnsPromise()
       promiseCall.resolves({ body: 5 })
 
       const Constructor = Vue.extend(Hello)
@@ -86,12 +86,9 @@ describe('Hello.vue', () => {
 
       expect(vm.$data.counter).to.equal(5)
       expect(promiseCall).to.have.been.called
-      expect(promiseCall).to.have.been.calledWith({
-        method: 'get',
-        url: 'http://setgetgo.com/rollthedice/get.php'
-      })
+      expect(promiseCall).to.have.been.calledWith('http://setgetgo.com/rollthedice/get.php')
 
-      Vue.http.restore()
+      Vue.http.get.restore()
     })
   })
 })
