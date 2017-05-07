@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <click-me-button ref="click-me-button" message="Increment counter" v-on:buttonHasBeenClicked="incrementCounter"></click-me-button>
+    <click-me-button message="Increment counter" v-on:buttonHasBeenClicked="incrementCounter"></click-me-button>
     <div class="counter">{{ counter }}</div>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -43,6 +43,9 @@ export default {
         this.$http.get('http://setgetgo.com/rollthedice/get.php')
           .then((response) => {
             this.counter += parseInt(response.body, 10)
+          }, () => {
+            console.log('La Base semble être KO !')
+            this.counter = 0
           })
       }
     }
