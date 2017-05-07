@@ -149,5 +149,21 @@ describe('Hello.vue', () => {
       // after
       Vue.http.get.restore()
     })
+
+    it('should incrementFromTheDice when button roll-the-dice is clicked', () => {
+      // given
+      let button = vm.$el.querySelector('button.roll-the-dice')
+      const promiseCall = sinon.stub(Vue.http, 'get').returnsPromise()
+      promiseCall.resolves({ body: '5' })
+
+      // when
+      button.click()
+
+      // then
+      expect(vm.$data.counter).to.equal(5)
+
+      // after
+      Vue.http.get.restore()
+    })
   })
 })

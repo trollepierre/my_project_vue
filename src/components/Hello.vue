@@ -2,6 +2,7 @@
   <div class="hello">
     <click-me-button message="Increment counter" v-on:buttonHasBeenClicked="incrementCounter"></click-me-button>
     <div class="counter">{{ counter }}</div>
+    <button class="roll-the-dice" v-on:click="incrementFromTheDice">ROLL THE DICE</button>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
