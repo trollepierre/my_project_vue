@@ -38,7 +38,11 @@ export default {
     methods: {
       incrementCounter: function () {
         this.counter += 1
+      },
+      incrementFromTheDice: function () {
+        this.$http.get('http://setgetgo.com/rollthedice/get.php')
       }
+
     }
 }
 </script>
