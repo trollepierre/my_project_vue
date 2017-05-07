@@ -111,5 +111,25 @@ describe('Hello.vue', () => {
       // after
       Vue.http.get.restore()
     })
+
+    it('should call increment counter from API answer', () => {
+      // given
+      const promiseCall = sinon.stub(Vue.http, 'get').returnsPromise()
+      promiseCall.resolves({ body: '5' })
+
+      // construct vue
+      const Constructor = Vue.extend(Hello)
+      const vm = new Constructor({ data: { counter: 6 } }).$mount()
+
+      // when
+      vm.incrementFromTheDice()
+
+      // then
+      expect(promiseCall).to.have.been.calledWith('http://setgetgo.com/rollthedice/get.php')
+      expect(vm.$data.counter).to.equal(11)
+
+      // after
+      Vue.http.get.restore()
+    })
   })
 })

@@ -41,8 +41,10 @@ export default {
       },
       incrementFromTheDice: function () {
         this.$http.get('http://setgetgo.com/rollthedice/get.php')
+          .then((response) => {
+            this.counter += parseInt(response.body, 10)
+          })
       }
-
     }
 }
 </script>
