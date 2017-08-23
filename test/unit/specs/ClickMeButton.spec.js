@@ -37,7 +37,7 @@ describe('ClickMeButton.vue', () => {
       vm.onButtonClick()
 
       // Then
-      vm.$emit.calledWith('buttonHasBeenClicked')
+      expect(vm.$emit).to.have.been.calledWith('buttonHasBeenClicked')
     })
 
     it('should emit an event when button is clicked', () => {
@@ -49,7 +49,7 @@ describe('ClickMeButton.vue', () => {
       button.click()
 
       // then
-      vm.$emit.calledWith('buttonHasBeenClicked')
+      expect(vm.$emit).to.have.been.calledWith('buttonHasBeenClicked')
     })
   })
 })
